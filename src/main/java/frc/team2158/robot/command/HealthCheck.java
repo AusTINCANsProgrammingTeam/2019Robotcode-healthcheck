@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 import frc.team2158.robot.command.DriveCheck;
 // import frc.team2158.robot.command.LiftCheck;
 import edu.wpi.first.wpilibj.command.CommandGroup;
-// import frc.team2158.robot.command.CheckIntake;
+import frc.team2158.robot.command.IntakeCheck;
 
 /**
 * @author Jack Lewis
@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class HealthCheck extends CommandGroup {
     public HealthCheck() {
     	addSequential(new DriveCheck());
-        // addSequential(new CheckIntake());
+        addSequential(new IntakeCheck());
         // addSequential(new LiftCheck());
     }
 }
