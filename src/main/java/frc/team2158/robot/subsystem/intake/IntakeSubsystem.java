@@ -131,6 +131,10 @@ public class IntakeSubsystem extends Subsystem {
                 break;
         }
     }
+    
+    public SpeedController getLeftSC(){
+        return leftSpeedController;
+    }
 
     @Override
     protected void initDefaultCommand() {
