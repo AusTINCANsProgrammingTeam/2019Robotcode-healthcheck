@@ -51,8 +51,17 @@ import edu.wpi.first.wpilibj.SpeedController;
             LOGGER.info("[" + counter + "]" + "Gear is now " + driveSubsystem.getGearMode());
 
         }
+     
+        if (counter == 50) {
 
-        if (counter > 50 && counter < 75) {
+            LOGGER.info("[" + counter + "]" + "Gear is " + driveSubsystem.getGearMode());
+            LOGGER.info("[" + counter + "]" + "Toggling gear... ");
+            driveSubsystem.toggleGearMode();
+            LOGGER.info("[" + counter + "]" + "Gear is now " + driveSubsystem.getGearMode());
+
+        }
+
+        if (counter > 150 && counter < 175) {
 
             LOGGER.info("[" + counter + "]" + "Driving forward for half a second... ");
             driveSubsystem.tankDrive(1, 1);
@@ -60,7 +69,7 @@ import edu.wpi.first.wpilibj.SpeedController;
         }
 
 
-        if (counter > 150 && counter < 175) {
+        if (counter > 250 && counter < 275) {
 
             LOGGER.info("[" + counter + "]" + "Driving backwards for half a second... ");
             driveSubsystem.tankDrive(-1, -1);
@@ -68,7 +77,7 @@ import edu.wpi.first.wpilibj.SpeedController;
 
         }
 
-        if ( ( counter == 50 ) || ( counter == 62 ) || ( counter == 75 ) || ( counter == 150 ) || ( counter == 162 ) || ( counter == 175 ) ) {
+        if ( ( counter == 150 ) || ( counter == 162 ) || ( counter == 175 ) || ( counter == 250 ) || ( counter == 262 ) || ( counter == 275 ) ) {
             
             LOGGER.info("[" + counter + "]" + "Left motor is at " + driveSubsystem.leftSpeedController.master.getOutputCurrent() + " amps"); // ISSUE SparkMaxGroup does not have this functionality
             LOGGER.info("[" + counter + "]" + "Right motor is at " + driveSubsystem.rightSpeedController.master.getOutputCurrent() + " amps"); // ISSUE SparkMaxGroup does not have this functionality
