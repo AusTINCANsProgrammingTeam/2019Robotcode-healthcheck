@@ -29,10 +29,10 @@ public class IntakeCheck extends Command{
     }
 
     public void speedControllerCheck(){
-        double speed1 = intakeSubsystem.getLeftSC().get();
+        double speed1 = intakeSubsystem.getLeftSC().getSpeed();
         LOGGER.info("Speeding up ...");
-        intakeSubsystem.getLeftSC().set(0.1);
-        double speed2 = intakeSubsystem.getLeftSC().get();
+        intakeSubsystem.getLeftSC().setSpeed(0.1);
+        double speed2 = intakeSubsystem.getLeftSC().getSpeed();
 
         if(speed1 == speed2){
             LOGGER.info("Speed Controller Check : failure");
