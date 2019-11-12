@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.team2158.robot.Robot;
+import frc.team2158.robot.TestDetails;
 import frc.team2158.robot.subsystem.intake.IntakeSubsystem;
 
 //Bohdan Khoruzhenko 
@@ -28,21 +29,24 @@ public class IntakeCheck extends Command{
 
     }
 
-    public void speedControllerCheck(){
+    public TestDetails speedControllerCheck(){
+        boolean result;
         double speed1 = intakeSubsystem.getLeftSC().get();
         LOGGER.info("Speeding up ...");
         intakeSubsystem.getLeftSC().set(0.1);
         double speed2 = intakeSubsystem.getLeftSC().get();
 
         if(speed1 == speed2){
-            LOGGER.info("Speed Controller Check : failure");
+            result = false;
         }
-
-        LOGGER.info("Speed Controller Check : success");
-
+        
+        result = true;
+        return new TestDetails("SpeedControllerIntake", "Speed - " + speed2, result);
     }
 
-    public void doubleSolenoidCheck(){
+    public TestDetails doubleSolenoidCheck(){
+        boolean result;
+
         DoubleSolenoid.Value stateA = intakeSubsystem.getSolenoidState();
 
         LOGGER.info("Current state: " + stateA);
@@ -52,10 +56,13 @@ public class IntakeCheck extends Command{
         DoubleSolenoid.Value stateB = intakeSubsystem.getSolenoidState();
 
         if(stateA == stateB){
-            LOGGER.info("Double solenoid check: failure");
+            result = false;
         }
 
-        LOGGER.info("Double solenoid check : success");
+        result = true;
+
+        return new TestDetails("DoubleSolenoidIntake", "State - " + stateB, result);
+
     } 
 
 
