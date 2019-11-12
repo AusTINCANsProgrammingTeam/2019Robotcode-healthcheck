@@ -64,7 +64,7 @@ import edu.wpi.first.wpilibj.SpeedController;
         if (counter > 150 && counter < 175) {
 
             LOGGER.info("[" + counter + "]" + "Driving forward for half a second... ");
-            driveSubsystem.tankDrive(1, 1);
+            driveSubsystem.tankDrive(0.1, 0.1);
 
         }
 
@@ -72,7 +72,7 @@ import edu.wpi.first.wpilibj.SpeedController;
         if (counter > 250 && counter < 275) {
 
             LOGGER.info("[" + counter + "]" + "Driving backwards for half a second... ");
-            driveSubsystem.tankDrive(-1, -1);
+            driveSubsystem.tankDrive(-0.1, -0.1);
 
 
         }

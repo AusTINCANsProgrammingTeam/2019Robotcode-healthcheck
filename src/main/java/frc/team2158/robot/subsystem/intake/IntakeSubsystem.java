@@ -116,6 +116,10 @@ public class IntakeSubsystem extends Subsystem {
         return solenoid.get();
     }
 
+    public SpeedController getLeftSC(){
+        return leftSpeedController;
+    }
+
     /**
      * Toggles the solenoid state.
      */
